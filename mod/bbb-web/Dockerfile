@@ -26,10 +26,10 @@ RUN unzip -q /bbb-web/build/libs/bigbluebutton-0.10.0.war -d /dist
 
 
 # ===================================================
-FROM alangecker/bbb-docker-base-java
+FROM planesailingio/bbb-docker-base-java
 
 # add blank presentation files and allow conversion to pdf/svg
-RUN mkdir -p /usr/share/bigbluebutton/blank \
+RUN apt update && apt upgrade -y && mkdir -p /usr/share/bigbluebutton/blank \
     && cd /usr/share/bigbluebutton/blank \
     && wget \
         https://raw.githubusercontent.com/bigbluebutton/bigbluebutton/v2.4.0/bigbluebutton-config/slides/blank-svg.svg \
